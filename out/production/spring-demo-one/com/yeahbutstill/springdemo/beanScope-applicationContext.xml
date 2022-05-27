@@ -7,9 +7,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- load the properties file: sport.properties	-->
-	<context:property-placeholder location="classpath:sport.properties"/>
-
 	<!--
 	Add a logger config to see logging messages.
 	- For more detailed logs, set values to "FINEST"
@@ -34,20 +31,18 @@
 		<constructor-arg ref="myFortuneService"></constructor-arg>
     </bean>
 
+<!--	<bean id="myCoach"-->
+<!--		  class="com.yeahbutstill.springdemo.TrackCoach"> // default scope singleton-->
+
+<!--		&lt;!&ndash; set up constructor injection &ndash;&gt;-->
+<!--		<constructor-arg ref="myFortuneService"></constructor-arg>-->
+<!--	</bean>-->
+
 	<bean id="myCoach"
-		  class="com.yeahbutstill.springdemo.TrackCoach">
+		  class="com.yeahbutstill.springdemo.TrackCoach" scope="prototype">
 
 		<!-- set up constructor injection -->
 		<constructor-arg ref="myFortuneService"></constructor-arg>
-	</bean>
-
-	<bean id="myCricketCoach" class="com.yeahbutstill.springdemo.CricketCoach">
-		<!--	set up setter injection	-->
-		<property name="fortuneService" ref="myFortuneService"></property>
-
-		<!-- inject literal values  -->
-		<property name="emailAddress" value="${foo.email}"></property>
-		<property name="team" value="${foo.team}"></property>
 	</bean>
 
 </beans>
