@@ -11,9 +11,22 @@ public class TennisCoach implements Coach {
 
     private FortuneService fortuneService;
 
+    public TennisCoach() {
+    }
+
     // configure dependency injection with @Autowired annotation
     @Autowired
     public TennisCoach(FortuneService fortuneService) {
+        System.out.println("fortuneService " + fortuneService);
+        this.fortuneService = fortuneService;
+    }
+
+    public FortuneService getFortuneService() {
+        return fortuneService;
+    }
+
+    @Autowired
+    public void setFortuneService(FortuneService fortuneService) {
         System.out.println("fortuneService " + fortuneService);
         this.fortuneService = fortuneService;
     }
