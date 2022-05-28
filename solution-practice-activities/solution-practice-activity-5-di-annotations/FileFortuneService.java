@@ -13,45 +13,45 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileFortuneService implements FortuneService {
 
-	private String fileName = "C:/foobar/fortune-data.txt";
-	private List<String> theFortunes;
+    private String fileName = "C:/foobar/fortune-data.txt";
+    private List<String> theFortunes;
 
-	// create a random number generator
-	private Random myRandom = new Random();
+    // create a random number generator
+    private Random myRandom = new Random();
 
-	public FileFortuneService() {
+    public FileFortuneService() {
 
-		File theFile = new File(fileName);
-		
-		System.out.println("Reading fortunes from file: " + theFile);
-		System.out.println("File exists: " + theFile.exists());
-		
-		// initialize array list
-		theFortunes = new ArrayList<String>();
-		
-		// read fortunes from file
-		try (BufferedReader br = new BufferedReader(
-				new FileReader(theFile))) {
+        File theFile = new File(fileName);
 
-			String tempLine;
+        System.out.println("Reading fortunes from file: " + theFile);
+        System.out.println("File exists: " + theFile.exists());
 
-			while ((tempLine = br.readLine()) != null) {
-				theFortunes.add(tempLine);
-			}
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        // initialize array list
+        theFortunes = new ArrayList<String>();
 
-	@Override
-	public String getFortune() {
-		// pick a random string from the array
-		int index = myRandom.nextInt(theFortunes.size());
+        // read fortunes from file
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(theFile))) {
 
-		String tempFortune = theFortunes.get(index);
+            String tempLine;
 
-		return tempFortune;
-	}
+            while ((tempLine = br.readLine()) != null) {
+                theFortunes.add(tempLine);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String getFortune() {
+        // pick a random string from the array
+        int index = myRandom.nextInt(theFortunes.size());
+
+        String tempFortune = theFortunes.get(index);
+
+        return tempFortune;
+    }
 
 }

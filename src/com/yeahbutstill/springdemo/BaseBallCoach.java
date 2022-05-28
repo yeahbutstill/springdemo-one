@@ -1,6 +1,6 @@
 package com.yeahbutstill.springdemo;
 
-public class BaseBallCoach implements Coach{
+public class BaseBallCoach implements Coach {
 
     // define a private field for the dependency
     private FortuneService fortuneService;

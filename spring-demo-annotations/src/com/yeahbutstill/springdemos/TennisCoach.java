@@ -1,19 +1,15 @@
-package com.luv2code.springdemo;
+package com.yeahbutstill.springdemos;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class WrestlingCoach implements Coach {
+public class TennisCoach implements Coach {
 
     private FortuneService fortuneService;
 
-    public WrestlingCoach(FortuneService theFortuneService) {
-        fortuneService = theFortuneService;
-    }
-
     @Override
     public String getDailyWorkout() {
-        return "Practice your double leg takedown.";
+        return "Practice your backhand dani";
     }
 
     @Override

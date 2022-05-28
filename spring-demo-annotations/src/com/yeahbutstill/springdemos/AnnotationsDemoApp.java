@@ -1,17 +1,15 @@
-package com.luv2code.springdemo;
+package com.yeahbutstill.springdemos;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class PracticeAnnotationDemoApp {
-
+public class AnnotationsDemoApp {
     public static void main(String[] args) {
 
         // read spring config file
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         // get the bean from spring container
-        Coach theCoach = context.getBean("pingPongCoach", Coach.class);
+        Coach theCoach = context.getBean("tennisCoach", Coach.class);
 
         // call a method on the bean
         System.out.println(theCoach.getDailyWorkout());
@@ -20,7 +18,4 @@ public class PracticeAnnotationDemoApp {
         context.close();
 
     }
-
 }
-
-
